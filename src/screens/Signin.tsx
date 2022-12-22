@@ -5,8 +5,16 @@ import LogoSvg from '@assets/logo.svg'
 import BackgroundImg from '@assets/background.png'
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
+import { useNavigation } from '@react-navigation/native';
+import { AuthNavigatorRoutesProps } from '@routes/auth.routes'
 
 export function Signin() {
+    const { navigate } = useNavigation<AuthNavigatorRoutesProps>()
+
+    function handleNewAccount() {
+        navigate('signUp')
+    }
+
     return (
         <ScrollView 
             contentContainerStyle={{flexGrow: 1}} 
@@ -52,7 +60,7 @@ export function Signin() {
                     </Text>
                     
                     
-                    <Button title="Criar conta" variant="outline" />
+                    <Button title="Criar conta" variant="outline"  onPress={handleNewAccount}/>
                 </Center>
                 
             </VStack>

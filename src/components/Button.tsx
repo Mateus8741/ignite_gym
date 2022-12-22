@@ -23,10 +23,6 @@ export function Button({title, variant= 'solid', ...rest}: Props) {
                 fontSize: "sm"
             }}
             {...rest}
-            onPress={()=>{
-                console.log('hello')
-            }}
-        
         >
             {title}
         </NativeBaseButton>
