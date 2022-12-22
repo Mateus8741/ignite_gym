@@ -23,6 +23,7 @@ export function Signin() {
             <VStack flex={1}  px={10}>
                 <Image
                     source={BackgroundImg}
+                    defaultSource={BackgroundImg}
                     alt="Pessoas malhando"
                     resizeMode="contain"
                     position='absolute'
