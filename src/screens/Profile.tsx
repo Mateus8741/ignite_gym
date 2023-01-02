@@ -16,8 +16,13 @@ import { TouchableOpacity } from "react-native";
 
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
+import { useAuth } from "@hooks/useAuth";
+
+import defaultUserPhotoImg from "@assets/userPhotoDefault.png";
 
 export function Profile() {
+  const { user } = useAuth();
+
   const [photoIsLoading, setPhotoIsLoading] = useState(false);
   const [userPhoto, setUserPhoto] = useState(
     "https://github.com/Mateus8741.png"
@@ -78,7 +83,7 @@ export function Profile() {
             />
           ) : (
             <UserPhoto
-              source={{ uri: userPhoto }}
+              source={user.avatar ? { uri: user.avatar } : defaultUserPhotoImg}
               alt="Foto do usuário"
               size={PHOTO_SIZE}
             />
