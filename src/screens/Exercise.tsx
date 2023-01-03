@@ -68,7 +68,7 @@ export function Exercise() {
     try {
       setSendingRegister(true);
 
-      await api.post("/hitory", {
+      await api.post("/history", {
         exercise_id: exerciseId,
       });
 
