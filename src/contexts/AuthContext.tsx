@@ -112,6 +112,14 @@ export function AuthContextProvider({ children }: ContextProps) {
     loadUserData();
   }, []);
 
+  useEffect(() => {
+    const subscribe = api.registerInterceptTokenManager(singOut);
+
+    return () => {
+      subscribe();
+    };
+  }, [singOut]);
+
   const value = {
     user,
     signIn,
